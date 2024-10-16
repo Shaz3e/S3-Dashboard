@@ -1,1 +1,1 @@
-{{ auth()->user()->name ?? '' }}
+{{ ucwords(auth()->user()->name) ?? '' }}

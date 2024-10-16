@@ -54,7 +54,7 @@
     </div>
     {{-- /.END layout-wrapper --}}
 
-    @yield('right-sidebar')
+    @include('components.layouts.right-sidebar')
 
     {{-- Right bar overlay --}}
     <div class="rightbar-overlay"></div>
