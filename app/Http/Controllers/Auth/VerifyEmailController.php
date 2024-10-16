@@ -11,7 +11,7 @@ class VerifyEmailController extends Controller
     public function verify()
     {
         return view('auth.verify', [
-            'title' => __('app.auth.verify.title')
+            'title' => __('auth.title.verify')
         ]);
     }
 

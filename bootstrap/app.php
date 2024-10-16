@@ -11,7 +11,11 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        //
+        $middleware->alias([
+            'locked' => \App\Http\Middleware\CheckIfLockedMiddleware::class,
+            'active' => \App\Http\Middleware\CheckIfUserIsActiveMiddleware::class,
+            'verify' => \App\Http\Middleware\VerifyEmailMiddleware::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //

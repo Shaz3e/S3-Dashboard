@@ -29,17 +29,20 @@ return [
         'register' => 'Register',
         'forgot_password' => 'Forgot password',
         'reset' => 'Reset Your Password',
-        'verify' => 'Verify Email Address,'
+        'verify' => 'Verify Email Address,',
+        'locked' => 'Your Account is Locked',
     ],
 
     'heading' => [
         'forgot' => 'Forgot Password?',
         'verify' => 'Please verify your email address',
+        'locked' => 'Your Account is Locked',
 
     ],
     'message' => [
         'forgot' => 'Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.,',
         'verify' => 'Please verify your email address by click on the link we emailed you. If you did not receive the email, please check your spam folder or get a new verification link.',
+        'locked' => 'Please enter your password to continue.',
     ],
 
     'button' => [

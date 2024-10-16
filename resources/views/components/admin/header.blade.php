@@ -271,7 +271,7 @@
                         <i class="ri-settings-2-line align-middle me-1"></i>
                         {{ __('menu.setting') }}
                     </a>
-                    <a class="dropdown-item" href="#">
+                    <a class="dropdown-item" href="{{route('lock')}}">
                         <i class="ri-lock-unlock-line align-middle me-1"></i>
                         {{ __('menu.lock_screen') }}
                     </a>

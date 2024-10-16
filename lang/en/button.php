@@ -12,6 +12,7 @@ return [
     'cancel' => 'Cancel',
     'close' => 'Close',
     'file' => 'File',
+    'unlock' => 'Unlock',
     'yes' => 'Yes',
     'no' => 'No',
     'click_here' => 'Click here',
