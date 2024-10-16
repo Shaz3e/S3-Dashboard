@@ -25,7 +25,7 @@ return [
     // Global options
     'options' => [
         'timeout' => 5000, // in milliseconds
-        'position' => 'top-right',
+        'position' => 'bottom-right',
     ],
 
     // Configuration for the flash bag (converting Laravel flash messages)
