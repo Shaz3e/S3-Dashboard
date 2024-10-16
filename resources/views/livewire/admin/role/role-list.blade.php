@@ -31,57 +31,40 @@
         {{-- .col --}}
     </div>
     {{-- /.row --}}
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th>{{ __('role.table.name') }}</th>
-                                    <th>{{ __('role.table.guard_name') }}</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($records as $role)
-                                    <tr>
-                                        <td>{{ ucwords($role->name) }}</td>
-                                        <td>{{ $role->guard_name }}</td>
-                                        <td>
-                                            @if ($showDeleted)
-                                                <x-form.action-button wire:click="confirmRestore({{ $role->id }})"
-                                                    class="btn-sm btn-warning" text="{{ __('button.restore') }}"
-                                                    icon="ri-delete-bin-7-line" permission="role.restore" />
-                                                <x-form.action-button
-                                                    wire:click="confirmForceDelete({{ $role->id }})"
-                                                    class="btn-sm btn-danger" text="{{ __('button.delete') }}"
-                                                    permission="role.force.delete" />
-                                            @else
-                                                <x-form.action-link class="btn-sm btn-primary"
-                                                    text="{{ __('button.view') }}" icon="ri-eye-line" :route="route('admin.roles.show', $role->id)"
-                                                    permission="role.read" />
-                                                <x-form.action-link class="btn-sm btn-success"
-                                                    text="{{ __('button.edit') }}" icon="ri-pencil-line"
-                                                    :route="route('admin.roles.show', $role->id)" permission="role.update" />
-                                                <x-form.action-button wire:click="confirmDelete({{ $role->id }})"
-                                                    class="btn-sm btn-danger" permission="role.delete" />
-                                            @endif
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                {{-- /.card-body --}}
-            </div>
-            {{-- /.card --}}
 
-            {{ $records->links() }}
-        </div>
-        {{-- /.col --}}
-    </div>
-    {{-- /.row --}}
+    <!-- Usage Example -->
+    <x-table :headers="['#', __('role.table.name'), __('role.table.guard_name')]" :records="$records">
+        @php
+            $totalRecords = $records->total();
+            $currentPage = $records->currentPage();
+            $perPage = $records->perPage();
+            $id = $totalRecords - ($currentPage - 1) * $perPage;
+        @endphp
+        @foreach ($records as $role)
+            <tr wire:key="{{ $role->id }}">
+                <td>{{ $id-- }}</td>
+                <td>{{ ucwords($role->name) }}</td>
+                <td>{{ $role->guard_name }}</td>
+                <td class="text-end">
+                    @if ($showDeleted)
+                        <x-form.action-button wire:click="confirmRestore({{ $role->id }})"
+                            class="btn-sm btn-warning" text="{{ __('button.restore') }}" icon="ri-delete-bin-7-line"
+                            permission="role.restore" />
+                        <x-form.action-button wire:click="confirmForceDelete({{ $role->id }})"
+                            class="btn-sm btn-danger" text="{{ __('button.delete') }}" permission="role.force.delete" />
+                    @else
+                        <x-form.action-link class="btn-sm btn-primary" text="{{ __('button.view') }}" icon="ri-eye-line"
+                            :route="route('admin.roles.show', $role->id)" permission="role.read" />
+                        <x-form.action-link class="btn-sm btn-success" text="{{ __('button.edit') }}"
+                            icon="ri-pencil-line" :route="route('admin.roles.edit', $role->id)" permission="role.update" />
+                        <x-form.action-button wire:click="confirmDelete({{ $role->id }})" class="btn-sm btn-danger"
+                            permission="role.delete" />
+                    @endif
+                </td>
+            </tr>
+        @endforeach
+    </x-table>
+
+    {{ $records->links() }}
+
 </div>
