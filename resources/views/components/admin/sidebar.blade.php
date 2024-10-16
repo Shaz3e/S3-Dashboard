@@ -33,6 +33,24 @@
                         <span>{{ __('menu.dashboard') }}</span>
                     </a>
                 </li>
+
+                {{-- Roles & Permissions --}}
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="ri-shield-user-line"></i>
+                        <span>{{ __('menu.manage') }}</span>
+                    </a>
+                    <ul class="sub-menu mm-collapse" aria-expanded="false">
+
+                        <li class="{{ request()->routeIs('admin.roles.*') ? 'mm-active' : '' }}">
+                            <a href="{{ route('admin.roles.index') }}"
+                                class="waves-effect {{ request()->routeIs('admin.roles.*') ? 'active' : '' }}">
+                                {{ __('role.menu.index') }}
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
             </ul>
         </div>
         <!-- Sidebar -->

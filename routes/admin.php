@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 // Dashboard
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\Admin\RolePermission\RoleController;
 use App\Http\Controllers\Auth\LockController;
 use App\Http\Controllers\Auth\LogoutController;
 
@@ -33,7 +34,9 @@ Route::middleware(['auth', 'locked', 'active', 'verify'])->name('admin.')->group
     // Manage
     Route::prefix('/manage')->group(function () {
 
-        // Users
-
+        // Roles and Permissions
+        Route::prefix('roles-permissions')->group(function () {
+            Route::resource('roles', RoleController::class);
+        });
     });
 });

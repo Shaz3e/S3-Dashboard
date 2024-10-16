@@ -8,5 +8,8 @@ return [
 
     'main' => 'Menu',
     'dashboard' => 'Dashboard',
-    [],
+    
+    // Manage
+    'manage' => 'Manage',
+    'roles' => 'Roles'
 ];
