@@ -9,9 +9,9 @@
 ])
 
 <div class="mb-3">
-    {{-- @if ($label)
+    @if ($label)
         <label for="{{ $name }}" class="form-label">{{ $label }}</label>
-    @endif --}}
+    @endif
     <div class="input-group">
         <input type="file" name="{{ $name }}" id="{{ $name }}" class="form-control"
             {{ $multiple ? 'multiple' : '' }} accept="{{ $accept }}" {{ $required ? 'required' : '' }}>

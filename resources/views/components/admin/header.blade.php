@@ -4,20 +4,25 @@
             <!-- LOGO -->
             <div class="navbar-brand-box">
                 <a href="{{ route('admin.dashboard') }}" class="logo logo-dark">
+
                     <span class="logo-sm">
-                        <img src="{{ asset('assets/images/logo-sm.png') }}" alt="logo-sm" height="22">
+                        <img src="{{ DiligentCreators('logo_sm') ? asset('storage/' . DiligentCreators('logo_sm')) : asset('assets/images/logo-sm.png') }}"
+                            alt="logo-sm" height="22">
                     </span>
                     <span class="logo-lg">
-                        <img src="{{ asset('assets/images/logo-dark.png') }}" alt="logo-dark" height="20">
+                        <img src="{{ DiligentCreators('logo_dark') ? asset('storage/' . DiligentCreators('logo_dark')) : asset('assets/images/logo-dark.png') }}"
+                            alt="logo-dark" height="20">
                     </span>
                 </a>
 
                 <a href="{{ route('admin.dashboard') }}" class="logo logo-light">
                     <span class="logo-sm">
-                        <img src="{{ asset('assets/images/logo-sm.png') }}" alt="logo-sm-light" height="22">
+                        <img src="{{ DiligentCreators('logo_sm') ? asset('storage/' . DiligentCreators('logo_sm')) : asset('assets/images/logo-sm.png') }}"
+                            alt="logo-sm" height="22">
                     </span>
                     <span class="logo-lg">
-                        <img src="{{ asset('assets/images/logo-light.png') }}" alt="logo-light" height="20">
+                        <img src="{{ DiligentCreators('logo_light') ? asset('storage/' . DiligentCreators('logo_light')) : asset('assets/images/logo-light.png') }}"
+                            alt="logo-light" height="20">
                     </span>
                 </a>
             </div>
@@ -266,12 +271,12 @@
                         <i class="ri-user-line align-middle me-1"></i>
                         {{ __('menu.profile') }}
                     </a>
-                    <a class="dropdown-item d-block" href="#">
+                    <a class="dropdown-item d-block" href="{{ route('admin.settings.general') }}">
                         <span class="badge bg-success float-end mt-1">11</span>
                         <i class="ri-settings-2-line align-middle me-1"></i>
                         {{ __('menu.setting') }}
                     </a>
-                    <a class="dropdown-item" href="{{route('lock')}}">
+                    <a class="dropdown-item" href="{{ route('lock') }}">
                         <i class="ri-lock-unlock-line align-middle me-1"></i>
                         {{ __('menu.lock_screen') }}
                     </a>
@@ -280,7 +285,7 @@
                     <a href="javascript:void(0)" class="dropdown-item text-danger"
                         onclick="$('#logout-form').submit();">
                         <i class="ri-shut-down-line align-middle me-1 text-danger"></i>
-                        {{__('menu.logout')}}
+                        {{ __('menu.logout') }}
                     </a>
                     {{-- logout form --}}
                     <form action="{{ route('admin.logout') }}" id="logout-form" method="POST">

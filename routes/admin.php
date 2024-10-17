@@ -1,15 +1,24 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-// Dashboard
-use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Admin\ProfileController;
-use App\Http\Controllers\Admin\RolePermission\PermissionController;
-use App\Http\Controllers\Admin\RolePermission\RoleController;
+// Lock
 use App\Http\Controllers\Auth\LockController;
+
+// Logout
 use App\Http\Controllers\Auth\LogoutController;
 
-// User
+// Profile
+use App\Http\Controllers\Admin\ProfileController;
+
+// Roles and Permissions
+use App\Http\Controllers\Admin\RolePermission\RoleController;
+use App\Http\Controllers\Admin\RolePermission\PermissionController;
+
+// Dashboard
+use App\Http\Controllers\Admin\DashboardController;
+
+// Settings
+use App\Http\Controllers\Admin\GeneralSettingController;
 
 Route::middleware('auth')->group(function () {
     // Lock
@@ -34,6 +43,12 @@ Route::middleware(['auth', 'locked', 'active', 'verify'])->name('admin.')->group
 
     // Manage
     Route::prefix('/manage')->group(function () {
+
+        // Setting
+        Route::prefix('/settings')->group(function () {
+            Route::get('/', [GeneralSettingController::class, 'general'])->name('settings.general');
+            Route::post('/', [GeneralSettingController::class, 'store'])->name('settings.general.store');
+        });
 
         // Roles and Permissions
         Route::prefix('/roles-permissions')->group(function () {
