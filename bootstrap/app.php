@@ -11,6 +11,9 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
+        $middleware->web([
+            \App\Http\Middleware\LocaleMiddleware::class
+        ]);
         $middleware->alias([
             'locked' => \App\Http\Middleware\CheckIfLockedMiddleware::class,
             'active' => \App\Http\Middleware\CheckIfUserIsActiveMiddleware::class,
