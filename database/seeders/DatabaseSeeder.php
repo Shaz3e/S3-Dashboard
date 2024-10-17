@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             // Required
-            // SmtpServerSeeder::class,
+            SmtpServerSeeder::class,
             UserSeeder::class,
 
             // Create Permissions

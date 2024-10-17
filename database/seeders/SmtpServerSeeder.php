@@ -14,11 +14,11 @@ class SmtpServerSeeder extends Seeder
     {
         $smtpServers = [
             'transport' => 'smtp',
-            'host' => 'mail.shaz3e.com',
+            'host' => '',
             'port' => 465,
             'encryption' => 'ssl',
-            'username' => 'test@shaz3e.com',
-            'password' => '3sEymGVpDDdQ8TOD1z',
+            'username' => '',
+            'password' => '',
             'active' => true,
         ];
 
