@@ -48,6 +48,12 @@
                                 {{ __('role.menu.index') }}
                             </a>
                         </li>
+                        <li class="{{ request()->routeIs('admin.permissions.index') ? 'mm-active' : '' }}">
+                            <a href="{{ route('admin.permissions.index') }}"
+                                class="waves-effect {{ request()->routeIs('admin.permissions.index') ? 'active' : '' }}">
+                                {{ __('permission.menu.index') }}
+                            </a>
+                        </li>
                     </ul>
                 </li>
 
