@@ -58,5 +58,15 @@ return [
     'table' => [
         'name' => 'Role Name',
         'guard_name' => 'Role Guard Name',
+
+        'permissions' => 'Permission Name',
+        'all' => 'All',
+        'list' => 'List View',
+        'create' => 'Create',
+        'read' => 'Read',
+        'update' => 'Update',
+        'delete' => 'Delete',
+        'restore' => 'Restore',
+        'force_delete' => 'Force Delete',
     ],
 ];

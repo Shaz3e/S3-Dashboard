@@ -7,8 +7,7 @@
         ['label' => __('role.breadcrumb.edit')],
     ]" />
 
-    <form action="{{ route('admin.roles.update', $role->id) }}" method="POST" class="needs-validation"
-        novalidate>
+    <form action="{{ route('admin.roles.update', $role->id) }}" method="POST" class="needs-validation" novalidate>
         @csrf
         @method('PUT')
         <div class="row mb-2">
@@ -39,8 +38,7 @@
         {{-- /.row --}}
     </form>
 
-    <form action="{{ route('admin.roles.update', $role->id) }}" method="POST" class="needs-validation"
-        novalidate>
+    <form action="{{ route('admin.roles.update', $role->id) }}" method="POST" class="needs-validation" novalidate>
         @csrf
         @method('PUT')
         <div class="row mb-2">
@@ -54,15 +52,15 @@
                             <table class="table table-hover table-bordered">
                                 <thead>
                                     <tr>
-                                        <th>Permission Name</th>
-                                        <th class="text-center">All</th>
-                                        <th class="text-center">List View</th>
-                                        <th class="text-center">Create</th>
-                                        <th class="text-center">Read</th>
-                                        <th class="text-center">Update</th>
-                                        <th class="text-center">Delete</th>
-                                        <th class="text-center">Restore</th>
-                                        <th class="text-center">Force Delete</th>
+                                        <th>{{ __('role.table.permissions') }}</th>
+                                        <th class="text-center">{{ __('role.table.all') }}</th>
+                                        <th class="text-center">{{ __('role.table.list') }}</th>
+                                        <th class="text-center">{{ __('role.table.create') }}</th>
+                                        <th class="text-center">{{ __('role.table.read') }}</th>
+                                        <th class="text-center">{{ __('role.table.update') }}</th>
+                                        <th class="text-center">{{ __('role.table.delete') }}</th>
+                                        <th class="text-center">{{ __('role.table.restore') }}</th>
+                                        <th class="text-center">{{ __('role.table.force_delete') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
