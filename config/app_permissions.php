@@ -21,11 +21,5 @@ return [
     ],
     'permission' => [
         'list',
-        'create',
-        'read',
-        'update',
-        'delete',
-        'restore',
-        'force.delete'
     ],
 ];

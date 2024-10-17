@@ -35,27 +35,32 @@
                 </li>
 
                 {{-- Roles & Permissions --}}
-                <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="ri-shield-user-line"></i>
-                        <span>{{ __('menu.manage') }}</span>
-                    </a>
-                    <ul class="sub-menu mm-collapse" aria-expanded="false">
-
-                        <li class="{{ request()->routeIs('admin.roles.*') ? 'mm-active' : '' }}">
-                            <a href="{{ route('admin.roles.index') }}"
-                                class="waves-effect {{ request()->routeIs('admin.roles.*') ? 'active' : '' }}">
-                                {{ __('role.menu.index') }}
-                            </a>
-                        </li>
-                        <li class="{{ request()->routeIs('admin.permissions.index') ? 'mm-active' : '' }}">
-                            <a href="{{ route('admin.permissions.index') }}"
-                                class="waves-effect {{ request()->routeIs('admin.permissions.index') ? 'active' : '' }}">
-                                {{ __('permission.menu.index') }}
-                            </a>
-                        </li>
-                    </ul>
-                </li>
+                @canany(['role.list', ['permission.list']])
+                    <li>
+                        <a href="javascript: void(0);" class="has-arrow waves-effect">
+                            <i class="ri-shield-user-line"></i>
+                            <span>{{ __('menu.manage') }}</span>
+                        </a>
+                        <ul class="sub-menu mm-collapse" aria-expanded="false">
+                            @can('role.list')
+                                <li class="{{ request()->routeIs('admin.roles.*') ? 'mm-active' : '' }}">
+                                    <a href="{{ route('admin.roles.index') }}"
+                                        class="waves-effect {{ request()->routeIs('admin.roles.*') ? 'active' : '' }}">
+                                        {{ __('role.menu.index') }}
+                                    </a>
+                                </li>
+                            @endcan
+                            @can('permission.list')
+                                <li class="{{ request()->routeIs('admin.permissions.index') ? 'mm-active' : '' }}">
+                                    <a href="{{ route('admin.permissions.index') }}"
+                                        class="waves-effect {{ request()->routeIs('admin.permissions.index') ? 'active' : '' }}">
+                                        {{ __('permission.menu.index') }}
+                                    </a>
+                                </li>
+                            @endcan
+                        </ul>
+                    </li>
+                @endcan
 
             </ul>
         </div>
