@@ -77,9 +77,9 @@
                         </div>
 
                         <div class="col-12 text-center">
-                            {{-- <a href="{{ route('github.redirect') }}" class="text-dark">
+                            <a href="{{ route('github.redirect') }}" class="text-dark">
                                 <i class="ri-github-fill ri-2x"></i>
-                            </a> --}}
+                            </a>
                             {{-- <a href="{{ route('github.redirect') }}" class="text-dark">
                                 <i class="ri-google-fill ri-2x"></i>
                             </a>

@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 // Auth
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\Auth\GithubController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\PasswordResetController;
 use App\Http\Controllers\Auth\VerifyEmailController;
@@ -28,4 +29,8 @@ Route::middleware('guest')->group(function () {
 
     Route::get('/verify', [VerifyEmailController::class, 'verify'])->name('verify');
     Route::post('/verify', [VerifyEmailController::class, 'store'])->name('verify.store');
+
+    // Register with Github
+    Route::get('/auth/github', [GithubController::class, 'redirect'])->name('github.redirect');
+    Route::get('/auth/github/callback', [GithubController::class, 'callback'])->name('github.callback');
 });
