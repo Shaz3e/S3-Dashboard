@@ -271,11 +271,15 @@
                         <i class="ri-user-line align-middle me-1"></i>
                         {{ __('menu.profile') }}
                     </a>
-                    <a class="dropdown-item d-block" href="{{ route('admin.settings.general') }}">
-                        <span class="badge bg-success float-end mt-1">11</span>
-                        <i class="ri-settings-2-line align-middle me-1"></i>
-                        {{ __('menu.setting') }}
-                    </a>
+
+                    @can('general_setting.list')
+                        <a class="dropdown-item d-block" href="{{ route('admin.settings.general') }}">
+                            <span class="badge bg-success float-end mt-1">11</span>
+                            <i class="ri-settings-2-line align-middle me-1"></i>
+                            {{ __('menu.setting') }}
+                        </a>
+                    @endcan
+
                     <a class="dropdown-item" href="{{ route('lock') }}">
                         <i class="ri-lock-unlock-line align-middle me-1"></i>
                         {{ __('menu.lock_screen') }}

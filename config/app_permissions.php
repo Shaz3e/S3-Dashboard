@@ -22,4 +22,11 @@ return [
     'permission' => [
         'list',
     ],
+
+    // Settings Permissions
+    'general_setting' => [
+        'list',
+        'read',
+        'update',
+    ]
 ];

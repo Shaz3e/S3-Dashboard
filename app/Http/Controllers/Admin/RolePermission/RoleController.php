@@ -16,7 +16,7 @@ class RoleController extends Controller
      */
     public function index()
     {
-        // Gate::authorize('viewAny', Role::class);
+        Gate::authorize('viewAny', Role::class);
 
         return view('admin.role.index', [
             'title' => __('role.title.index')
@@ -28,7 +28,7 @@ class RoleController extends Controller
      */
     public function create()
     {
-        // Gate::authorize('create', Role::class);
+        Gate::authorize('create', Role::class);
 
         return view('admin.role.create', [
             'title' => __('role.title.create'),
@@ -40,7 +40,7 @@ class RoleController extends Controller
      */
     public function store(StoreRoleRequest $request)
     {
-        // Gate::authorize('create', Role::class);
+        Gate::authorize('create', Role::class);
 
         $validated = $request->validated();
 
@@ -56,7 +56,7 @@ class RoleController extends Controller
      */
     public function show(Role $role)
     {
-        // Gate::authorize('view', $role);
+        Gate::authorize('view', $role);
 
         if ($role) {
             return redirect()->route('admin.roles.edit', $role->id);
@@ -68,7 +68,7 @@ class RoleController extends Controller
      */
     public function edit(Role $role)
     {
-        // Gate::authorize('update', $role);
+        Gate::authorize('update', $role);
 
         $permissions = Permission::all();
 
@@ -90,7 +90,7 @@ class RoleController extends Controller
      */
     public function update(StoreRoleRequest $request, Role $role)
     {
-        // Gate::authorize('update', $role);
+        Gate::authorize('update', $role);
 
         if ($request->has('syncPermissions')) {
             if ($role) {

@@ -6,17 +6,24 @@ use App\Http\Controllers\Controller;
 use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Storage;
 
 class GeneralSettingController extends Controller
 {
     public function general()
     {
-        return view('admin.setting.main');
+        Gate::authorize('general_setting.read');
+
+        return view('admin.setting.main',[
+            'title' => __('setting.title.general'),
+        ]);
     }
 
     public function store(Request $request)
     {
+        Gate::authorize('general_setting.update');
+
         $validated = $request->validate([
             'app_name' => 'required',
             'app_url' => 'required|url',
