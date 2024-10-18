@@ -8,6 +8,7 @@ Route::get('/language/{locale}', function ($locale) {
     return redirect()->back();
 })->name('lang');
 
+require_once __DIR__ . '/website.php';
 require_once __DIR__ . '/auth.php';
 require_once __DIR__ . '/admin.php';
 require_once __DIR__ . '/user.php';

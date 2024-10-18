@@ -32,7 +32,7 @@ Route::middleware('auth')->group(function () {
 Route::middleware(['auth', 'locked', 'active', 'verify'])->name('admin.')->group(function () {
 
     // Dashboard
-    Route::get('/', DashboardController::class)->name('dashboard');
+    Route::get('/dashboard', DashboardController::class)->name('dashboard');
 
     // Logout
     Route::post('/logout', LogoutController::class)->name('logout');
