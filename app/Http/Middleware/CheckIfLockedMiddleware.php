@@ -16,7 +16,7 @@ class CheckIfLockedMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(Auth::check() && Auth::user()->locked){
+        if (Auth::check() && Auth::user()->locked) {
             return redirect()->route('locked');
         }
         return $next($request);

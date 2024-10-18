@@ -13,6 +13,5 @@ require_once __DIR__ . '/auth.php';
 require_once __DIR__ . '/admin.php';
 require_once __DIR__ . '/user.php';
 
-// All redirect URLs
-// All redirect routes
+// All redirect Routes URLs
 require __DIR__ . '/redirect.php';

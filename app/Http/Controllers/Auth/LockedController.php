@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class LockController extends Controller
+class LockedController extends Controller
 {
     public function view()
     {
@@ -14,7 +14,7 @@ class LockController extends Controller
         $admin->locked = true;
         $admin->save();
 
-        return view('auth.lock', [
+        return view('auth.locked', [
             'title' => __('auth.title.locked')
         ]);
     }

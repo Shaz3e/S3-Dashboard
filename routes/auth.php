@@ -10,6 +10,9 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\PasswordResetController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 
+// Locked
+use App\Http\Controllers\Auth\LockedController;
+
 Route::middleware('guest')->group(function () {
     // Register
     Route::get('/register', [RegisterController::class, 'register'])->name('register');
@@ -33,4 +36,12 @@ Route::middleware('guest')->group(function () {
     // Register with Github
     Route::get('/auth/github', [GithubController::class, 'redirect'])->name('github.redirect');
     Route::get('/auth/github/callback', [GithubController::class, 'callback'])->name('github.callback');
+});
+
+Route::middleware('auth')->group(function () {
+    // Locked
+    Route::get('locked', [LockedController::class, 'view'])
+        ->name('locked');
+    Route::post('locked', [LockedController::class, 'post'])
+        ->name('locked.store');
 });

@@ -1,8 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-// Lock
-use App\Http\Controllers\Auth\LockController;
 
 // Logout
 use App\Http\Controllers\Auth\LogoutController;
@@ -21,13 +19,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\Setting\GeneralSettingController;
 use App\Http\Controllers\Admin\Setting\SmtpServerSettingController;
 
-Route::middleware('auth')->group(function () {
-    // Lock
-    Route::get('lock', [LockController::class, 'view'])
-        ->name('lock');
-    Route::post('lock', [LockController::class, 'post'])
-        ->name('lock.store');
-});
+
 
 Route::middleware(['auth', 'locked', 'active', 'verify'])->name('admin.')->group(function () {
 

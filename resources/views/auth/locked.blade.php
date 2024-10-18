@@ -25,7 +25,7 @@
                 </div>
                 {{-- /.row --}}
 
-                <form action="{{ route('lock.store') }}" method="POST" class="needs-validation" novalidate>
+                <form action="{{ route('locked.store') }}" method="POST" class="needs-validation" novalidate>
                     @csrf
 
                     <div class="row mx-5">

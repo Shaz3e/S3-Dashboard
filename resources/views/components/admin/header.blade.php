@@ -280,7 +280,7 @@
                         </a>
                     @endcan
 
-                    <a class="dropdown-item" href="{{ route('lock') }}">
+                    <a class="dropdown-item" href="{{ route('locked') }}">
                         <i class="ri-lock-unlock-line align-middle me-1"></i>
                         {{ __('menu.lock_screen') }}
                     </a>
