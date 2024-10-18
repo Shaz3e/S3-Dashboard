@@ -272,7 +272,7 @@
                         {{ __('menu.profile') }}
                     </a>
 
-                    @can('general_setting.list')
+                    @can('general-setting.list')
                         <a class="dropdown-item d-block" href="{{ route('admin.settings.general') }}">
                             <span class="badge bg-success float-end mt-1">11</span>
                             <i class="ri-settings-2-line align-middle me-1"></i>

@@ -24,7 +24,7 @@ return [
     ],
 
     // Settings Permissions
-    'general_setting' => [
+    'general-setting' => [
         'list',
         'read',
         'update',

@@ -13,7 +13,7 @@ class GeneralSettingController extends Controller
 {
     public function general()
     {
-        Gate::authorize('general_setting.read');
+        Gate::authorize('general-setting.read');
 
         return view('admin.setting.main',[
             'title' => __('setting.title.general'),
@@ -22,7 +22,7 @@ class GeneralSettingController extends Controller
 
     public function store(Request $request)
     {
-        Gate::authorize('general_setting.update');
+        Gate::authorize('general-setting.update');
 
         $validated = $request->validate([
             'app_name' => 'required',
