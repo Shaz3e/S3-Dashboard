@@ -3,6 +3,8 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -23,6 +25,8 @@ class User extends Authenticatable
         'email',
         'password',
         'active',
+        'locked',
+        'user_type',
     ];
 
     /**
@@ -45,7 +49,13 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'user_type' => 'boolean'
         ];
+    }
+
+    public function getUserTypeAttribute()
+    {
+        return $this->attributes['user_type'] == 0 ? 'client' : 'admin';
     }
 
     public function profile()

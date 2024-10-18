@@ -19,6 +19,13 @@ return new class extends Migration
             $table->string('password');
             $table->boolean('active')->default(false);
             $table->boolean('locked')->default(false);
+            /**
+             * User type
+             * 0 - Client
+             * 1 - Admin
+             * @return boolean
+             */
+            $table->boolean('user_type')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });

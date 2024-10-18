@@ -13,12 +13,14 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         $users = [
+            // Admin
             [
                 // 1
                 'name' => 'Super Admin',
                 'email' => 'superadmin@shaz3e.com',
                 'password' => bcrypt('123456789'),
                 'active' => 1,
+                'user_type' => 1,
                 'email_verified_at' => now(),
                 'created_at' => now(),
                 'updated_at' => now(),
@@ -29,6 +31,7 @@ class UserSeeder extends Seeder
                 'email' => 'tester@shaz3e.com',
                 'password' => bcrypt('123456789'),
                 'active' => 1,
+                'user_type' => 1,
                 'email_verified_at' => now(),
                 'created_at' => now(),
                 'updated_at' => now(),
@@ -39,6 +42,7 @@ class UserSeeder extends Seeder
                 'email' => 'developer@shaz3e.com',
                 'password' => bcrypt('123456789'),
                 'active' => 1,
+                'user_type' => 1,
                 'email_verified_at' => now(),
                 'created_at' => now(),
                 'updated_at' => now(),
@@ -49,6 +53,7 @@ class UserSeeder extends Seeder
                 'email' => 'admin@shaz3e.com',
                 'password' => bcrypt('123456789'),
                 'active' => 1,
+                'user_type' => 1,
                 'email_verified_at' => now(),
                 'created_at' => now(),
                 'updated_at' => now(),
@@ -59,6 +64,7 @@ class UserSeeder extends Seeder
                 'email' => 'manager@shaz3e.com',
                 'password' => bcrypt('123456789'),
                 'active' => 1,
+                'user_type' => 1,
                 'email_verified_at' => now(),
                 'created_at' => now(),
                 'updated_at' => now(),
@@ -69,6 +75,52 @@ class UserSeeder extends Seeder
                 'email' => 'staff@shaz3e.com',
                 'password' => bcrypt('123456789'),
                 'active' => 1,
+                'user_type' => 1,
+                'email_verified_at' => now(),
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            // Client
+            [
+                // 7
+                'name' => 'User One',
+                'email' => 'user1@shaz3e.com',
+                'password' => bcrypt('123456789'),
+                'active' => 1,
+                'user_type' => 0,
+                'email_verified_at' => now(),
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                // 8
+                'name' => 'User One',
+                'email' => 'user2@shaz3e.com',
+                'password' => bcrypt('123456789'),
+                'active' => 1,
+                'user_type' => 0,
+                'email_verified_at' => now(),
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                // 9
+                'name' => 'User One',
+                'email' => 'user3@shaz3e.com',
+                'password' => bcrypt('123456789'),
+                'active' => 1,
+                'user_type' => 0,
+                'email_verified_at' => now(),
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                // 10
+                'name' => 'User One',
+                'email' => 'user4@shaz3e.com',
+                'password' => bcrypt('123456789'),
+                'active' => 1,
+                'user_type' => 0,
                 'email_verified_at' => now(),
                 'created_at' => now(),
                 'updated_at' => now(),
@@ -106,6 +158,26 @@ class UserSeeder extends Seeder
             ],
             [
                 'user_id' => 6,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'user_id' => 7,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'user_id' => 8,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'user_id' => 9,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'user_id' => 10,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],

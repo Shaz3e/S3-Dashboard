@@ -97,15 +97,32 @@
                         <div class="separator">
                             <span>{{ __('auth.separator.dev_login') }}</span>
                         </div>
-
-                        <x-login-link class="btn btn-dark btn-sm waves-effect waves-light" label="Super Admin"
-                            key="1" />
-                        <x-login-link class="btn btn-dark btn-sm waves-effect waves-light" label="Tester" key="2" />
-                        <x-login-link class="btn btn-dark btn-sm waves-effect waves-light" label="Developer"
-                            key="3" />
-                        <x-login-link class="btn btn-dark btn-sm waves-effect waves-light" label="Admin" key="4" />
-                        <x-login-link class="btn btn-dark btn-sm waves-effect waves-light" label="Manager" key="5" />
-                        <x-login-link class="btn btn-dark btn-sm waves-effect waves-light" label="Staff" key="6" />
+                        <div class="col-md-6">
+                            <x-login-link class="btn btn-dark btn-sm mb-1 waves-effect waves-light" label="Super Admin"
+                                key="1" />
+                            <x-login-link class="btn btn-dark btn-sm mb-1 waves-effect waves-light" label="Tester"
+                                key="2" />
+                            <x-login-link class="btn btn-dark btn-sm mb-1 waves-effect waves-light" label="Developer"
+                                key="3" />
+                            <x-login-link class="btn btn-dark btn-sm mb-1 waves-effect waves-light" label="Admin"
+                                key="4" />
+                            <x-login-link class="btn btn-dark btn-sm mb-1 waves-effect waves-light" label="Manager"
+                                key="5" />
+                            <x-login-link class="btn btn-dark btn-sm mb-1 waves-effect waves-light" label="Staff"
+                                key="6" />
+                        </div>
+                        {{-- /.col --}}
+                        <div class="col-md-6">
+                            <x-login-link class="btn btn-dark btn-sm mb-1 waves-effect waves-light" label="User One"
+                                key="7" />
+                            <x-login-link class="btn btn-dark btn-sm mb-1 waves-effect waves-light" label="User Two"
+                                key="8" />
+                            <x-login-link class="btn btn-dark btn-sm mb-1 waves-effect waves-light" label="User Three"
+                                key="9" />
+                            <x-login-link class="btn btn-dark btn-sm mb-1 waves-effect waves-light" label="User Four"
+                                key="10" />
+                        </div>
+                        {{-- /.col --}}
                         @endenv
                     </div>
                     {{-- /.row --}}
