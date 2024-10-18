@@ -81,12 +81,14 @@ abstract class BaseComponent extends Component
         $model = $this->getModelClass();
         $record = $model::find($id);
 
-        if ($record && in_array($field, ['active', 'suspended'])) {
+        // Check if the field exists in the model
+        if ($record && array_key_exists($field, $record->getAttributes())) {
             $record->$field = !$record->$field;
             $record->save();
-        }
 
-        $this->dispatch('statusChanged');
+            // Dispatch status changed event
+            $this->dispatch('statusChanged');
+        }
     }
 
     /**

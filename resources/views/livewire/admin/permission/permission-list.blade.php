@@ -10,13 +10,14 @@
         </div>
         {{-- /.col --}}
         <div class="col-md-9 col-sm-12 mb-2">
-            <input type="search" wire:model.live="search" class="form-control form-control-sm" placeholder="Search...">
+            <input type="search" wire:model.live="search" class="form-control form-control-sm"
+                placeholder="{{ __('filter.search') }}">
         </div>
         {{-- .col --}}
         <div class="col-md-2 col-sm-12 mb-2">
             <select wire:model.live="showDeleted" class="form-control form-control-sm form-control-border">
-                <option value="">Show All</option>
-                <option value="true">Show Deleted</option>
+                <option value="">{{ __('filter.show_all') }}</option>
+                <option value="true">{{ __('filter.show_deleted') }}</option>
             </select>
         </div>
         {{-- .col --}}

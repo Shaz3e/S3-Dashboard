@@ -10,6 +10,15 @@ return [
         'restore',
         'force.delete'
     ],
+    'smtp-server' => [
+        'list',
+        'create',
+        'read',
+        'update',
+        'delete',
+        'restore',
+        'force.delete'
+    ],
     'role' => [
         'list',
         'create',

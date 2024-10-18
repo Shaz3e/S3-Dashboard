@@ -6,5 +6,11 @@
                 <i class="ri ri-arrow-right-s-line me-2"></i> {{ __('setting.menu.general') }}
             </a>
         @endcan
+        @can('smtp-server.list')
+            <a href="{{ route('admin.smtp-servers.index') }}"
+                class="{{ request()->routeIs('admin.smtp-servers.*') ? 'active' : '' }}">
+                <i class="ri ri-arrow-right-s-line me-2"></i> {{ __('smtp-server.menu.index') }}
+            </a>
+        @endcan
     </div>
 </div>

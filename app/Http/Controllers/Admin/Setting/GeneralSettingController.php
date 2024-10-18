@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin\Setting;
 
 use App\Http\Controllers\Controller;
 use App\Models\Setting;
@@ -15,7 +15,7 @@ class GeneralSettingController extends Controller
     {
         Gate::authorize('general-setting.read');
 
-        return view('admin.setting.main',[
+        return view('admin.setting.main', [
             'title' => __('setting.title.general'),
         ]);
     }

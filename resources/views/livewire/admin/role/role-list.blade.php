@@ -19,13 +19,14 @@
         </div>
         {{-- /.col --}}
         <div class="col-md-9 col-sm-12 mb-2">
-            <input type="search" wire:model.live="search" class="form-control form-control-sm" placeholder="Search...">
+            <input type="search" wire:model.live="search" class="form-control form-control-sm"
+                placeholder="{{ __('filter.search') }}">
         </div>
         {{-- .col --}}
         <div class="col-md-2 col-sm-12 mb-2">
             <select wire:model.live="showDeleted" class="form-control form-control-sm form-control-border">
-                <option value="">Show All</option>
-                <option value="true">Show Deleted</option>
+                <option value="">{{ __('filter.show_all') }}</option>
+                <option value="true">{{ __('filter.show_deleted') }}</option>
             </select>
         </div>
         {{-- .col --}}
@@ -51,10 +52,11 @@
                             class="btn-sm btn-warning" text="{{ __('button.restore') }}" icon="ri-delete-bin-7-line"
                             permission="role.restore" />
                         <x-form.action-button wire:click="confirmForceDelete({{ $role->id }})"
-                            class="btn-sm btn-danger" text="{{ __('button.delete') }}" permission="role.force.delete" />
+                            class="btn-sm btn-danger" text="{{ __('button.delete') }}"
+                            permission="role.force.delete" />
                     @else
-                        <x-form.action-link class="btn-sm btn-primary" text="{{ __('button.view') }}" icon="ri-eye-line"
-                            :route="route('admin.roles.show', $role->id)" permission="role.read" />
+                        <x-form.action-link class="btn-sm btn-primary" text="{{ __('button.view') }}"
+                            icon="ri-eye-line" :route="route('admin.roles.show', $role->id)" permission="role.read" />
                         <x-form.action-link class="btn-sm btn-success" text="{{ __('button.edit') }}"
                             icon="ri-pencil-line" :route="route('admin.roles.edit', $role->id)" permission="role.update" />
                         <x-form.action-button wire:click="confirmDelete({{ $role->id }})" class="btn-sm btn-danger"

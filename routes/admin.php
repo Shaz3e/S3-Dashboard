@@ -18,7 +18,8 @@ use App\Http\Controllers\Admin\RolePermission\PermissionController;
 use App\Http\Controllers\Admin\DashboardController;
 
 // Settings
-use App\Http\Controllers\Admin\GeneralSettingController;
+use App\Http\Controllers\Admin\Setting\GeneralSettingController;
+use App\Http\Controllers\Admin\Setting\SmtpServerSettingController;
 
 Route::middleware('auth')->group(function () {
     // Lock
@@ -46,8 +47,13 @@ Route::middleware(['auth', 'locked', 'active', 'verify'])->name('admin.')->group
 
         // Setting
         Route::prefix('/settings')->group(function () {
+
+            // General Settings
             Route::get('/', [GeneralSettingController::class, 'general'])->name('settings.general');
             Route::post('/', [GeneralSettingController::class, 'store'])->name('settings.general.store');
+
+            // SMTP Servers
+            Route::resource('/smtp-servers', SmtpServerSettingController::class);
         });
 
         // Roles and Permissions
