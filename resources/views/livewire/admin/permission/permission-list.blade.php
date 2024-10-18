@@ -24,22 +24,23 @@
     </div>
     {{-- /.row --}}
 
-    <!-- Usage Example -->
-    <x-table :headers="['#', __('permission.table.name'), __('permission.table.guard_name')]" :records="$records">
-        @php
-            $totalRecords = $records->total();
-            $currentPage = $records->currentPage();
-            $perPage = $records->perPage();
-            $id = $totalRecords - ($currentPage - 1) * $perPage;
-        @endphp
-        @foreach ($records as $permission)
-            <tr wire:key="{{ $permission->id }}">
-                <td>{{ $id-- }}</td>
-                <td>{{ $permission->name }}</td>
-                <td>{{ $permission->guard_name }}</td>
-            </tr>
-        @endforeach
-    </x-table>
+    <div wire:poll.visible>
+        <x-table :headers="['#', __('permission.table.name'), __('permission.table.guard_name')]" :records="$records">
+            @php
+                $totalRecords = $records->total();
+                $currentPage = $records->currentPage();
+                $perPage = $records->perPage();
+                $id = $totalRecords - ($currentPage - 1) * $perPage;
+            @endphp
+            @foreach ($records as $permission)
+                <tr wire:key="{{ $permission->id }}">
+                    <td>{{ $id-- }}</td>
+                    <td>{{ $permission->name }}</td>
+                    <td>{{ $permission->guard_name }}</td>
+                </tr>
+            @endforeach
+        </x-table>
+    </div>
 
     {{ $records->links() }}
 
