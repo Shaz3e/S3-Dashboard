@@ -19,7 +19,7 @@ class ProfileController extends Controller
         ]);
 
         return view('admin.profile.profile', [
-            'title' => __('app.title.profile'),
+            'title' => __('profile.title.profile'),
             'user' => $user,
         ]);
     }

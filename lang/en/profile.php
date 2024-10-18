@@ -14,6 +14,13 @@ return [
     'warning' => [],
     'info' => [],
 
+    'title' => [
+        'profile' => 'My Profile',
+    ],
+    'breadcrumb' => [
+        'profile' => 'My Profile',
+    ],
+
     'profile_created_at' => 'Profile Created',
     'profile_updated_at' => 'Last Updated',
 
