@@ -9,7 +9,7 @@
                                 @foreach ($headers as $header)
                                     <th>{{ $header }}</th>
                                 @endforeach
-                                <th`></th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>

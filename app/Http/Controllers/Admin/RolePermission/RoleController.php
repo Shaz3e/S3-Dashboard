@@ -18,7 +18,7 @@ class RoleController extends Controller
     {
         Gate::authorize('viewAny', Role::class);
 
-        return view('admin.role.index', [
+        return view('admin.roles.index', [
             'title' => __('role.title.index')
         ]);
     }
@@ -30,7 +30,7 @@ class RoleController extends Controller
     {
         Gate::authorize('create', Role::class);
 
-        return view('admin.role.create', [
+        return view('admin.roles.create', [
             'title' => __('role.title.create'),
         ]);
     }
@@ -77,7 +77,7 @@ class RoleController extends Controller
             ->pluck('role_has_permissions.permission_id', 'role_has_permissions.permission_id')
             ->all();
 
-        return view('admin.role.edit', [
+        return view('admin.roles.edit', [
             'title' => __('role.title.edit'),
             'role' => $role,
             'permissions' => $permissions,

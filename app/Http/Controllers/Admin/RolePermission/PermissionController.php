@@ -12,7 +12,7 @@ class PermissionController extends Controller
     {
         Gate::authorize('viewAny', Permission::class);
 
-        return view('admin.permission.index', [
+        return view('admin.permissions.index', [
             'title' => __('permission.title.index')
         ]);
     }

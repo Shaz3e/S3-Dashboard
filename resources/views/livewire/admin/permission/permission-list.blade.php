@@ -37,6 +37,7 @@
                     <td>{{ $id-- }}</td>
                     <td>{{ $permission->name }}</td>
                     <td>{{ $permission->guard_name }}</td>
+                    <td></td>
                 </tr>
             @endforeach
         </x-table>

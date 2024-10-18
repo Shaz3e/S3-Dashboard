@@ -55,8 +55,6 @@
                                 class="btn-sm btn-danger" text="{{ __('button.delete') }}"
                                 permission="role.force.delete" />
                         @else
-                            <x-form.action-link class="btn-sm btn-primary" text="{{ __('button.view') }}"
-                                icon="ri-eye-line" :route="route('admin.roles.show', $role->id)" permission="role.read" />
                             <x-form.action-link class="btn-sm btn-success" text="{{ __('button.edit') }}"
                                 icon="ri-pencil-line" :route="route('admin.roles.edit', $role->id)" permission="role.update" />
                             <x-form.action-button wire:click="confirmDelete({{ $role->id }})"
