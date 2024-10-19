@@ -40,6 +40,8 @@ return [
         'logo_sm' => 'Only PNG with max 1MB file size allowed. Best image size 24px x 24px',
         'logo_light' => 'Only PNG with max 1MB file size allowed. Best image size 137px x 30px',
         'logo_dark' => 'Only PNG with max 1MB file size allowed. Best image size 137px x 30px',
+        'mail_from_name' => 'Type name which you want to show when system sends an email',
+        'mail_from_email' => 'Enter email address which you want to send email from.',
     ],
 
     'button' => [],

@@ -25,14 +25,16 @@ class GeneralSettingController extends Controller
         Gate::authorize('general-setting.update');
 
         $validated = $request->validate([
-            'app_name' => 'required',
-            'app_url' => 'required|url',
-            'app_timezone' => 'required|string',
-            'site_url' => 'required|url',
-            'favicon' => 'nullable',
-            'logo_sm' => 'nullable',
-            'logo_light' => 'nullable',
-            'logo_dark' => 'nullable',
+            'app_name' => 'required|string|max:100',
+            'app_url' => 'required|url|max:255',
+            'app_timezone' => 'required|string|timezone',
+            'site_url' => 'required|url|max:255',
+            'mail_from_name' => 'required|string|max:100',
+            'mail_from_email' => 'required|email|max:255',
+            'favicon' => 'nullable|mimes:ico|dimensions:min_width=128,min_height=128,max_width=512,max_height=512',
+            'logo_sm' => 'nullable|mimes:png|dimensions:width=24,height=24',
+            'logo_light' => 'nullable|mimes:png|dimensions:width=137,height=30',
+            'logo_dark' => 'nullable|mimes:png|dimensions:width=137,height=30',
         ]);
 
 
@@ -88,6 +90,8 @@ class GeneralSettingController extends Controller
             'APP_NAME' => "\"{$validated['app_name']}\"",
             'APP_URL' => rtrim($validated['app_url'], '/'),
             'APP_TIMEZONE' => $validated['app_timezone'],
+            'MAIL_FROM_ADDRESS' => "\"{$validated['mail_from_name']}\"",
+            'MAIL_FROM_NAME' => "\"{$validated['mail_from_email']}\"",
         ];
 
         // Update the key-value pairs

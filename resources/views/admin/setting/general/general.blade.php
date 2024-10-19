@@ -19,7 +19,19 @@
                 {{-- /.col --}}
                 <div class="col-md-6">
                     <x-form.input type="text" name="site_url" label="Site URL"
-                        value="{{ DiligentCreators('site_url') }}" required/>
+                        value="{{ DiligentCreators('site_url') ?? config('app.url') }}" required />
+                </div>
+                {{-- /.col --}}
+                <div class="col-md-6">
+                    <x-form.input type="text" name="mail_from_name" label="Name"
+                        value="{{ DiligentCreators('mail_from_name') ?? config('mail.from.name') }}"
+                        help_text="{{ __('setting.help_text.mail_from_name') }}" required />
+                </div>
+                {{-- /.col --}}
+                <div class="col-md-6">
+                    <x-form.input type="email" name="mail_from_email" label="Email"
+                        value="{{ DiligentCreators('mail_from_email') ?? config('mail.from.address') }}"
+                        help_text="{{ __('setting.help_text.mail_from_email') }}" required />
                 </div>
                 {{-- /.col --}}
             </div>
