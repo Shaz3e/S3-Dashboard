@@ -40,9 +40,14 @@ class LoginController extends Controller
             return back();
         }
 
+        // Check if user verified their email
         if (is_null($user->email_verified_at)) {
             return redirect()->route('verify');  // Redirect to the verification page
         }
+
+        // Unlock user accunt
+        $user->locked = false;
+        $user->save();
 
         // Check if the "Remember Me" checkbox is checked
         $remember = $request->has('remember');
