@@ -56,36 +56,38 @@
                 $id = $totalRecords - ($currentPage - 1) * $perPage;
             @endphp
             @foreach ($records as $user)
-                <tr wire:key="{{ $user->id }}">
-                    <td>{{ $id-- }}</td>
-                    <td>{{ ucwords($user->name) }}</td>
-                    <td>{{ $user->email }}</td>
-                    <td>
-                        @if ($user->email_verified_at)
-                            <span class="badge bg-success">Verified</span>
-                        @else
-                            <span class="badge bg-danger">Not Verified</span>
-                        @endif
-                    </td>
-                    <td><x-form.toggle-checkbox :record="$user" field="active" /></td>
-                    <td class="text-end">
-                        @if ($showDeleted)
-                            <x-form.action-button wire:click="confirmRestore({{ $user->id }})"
-                                class="btn-sm btn-warning" text="{{ __('button.restore') }}"
-                                icon="ri-delete-bin-7-line" permission="user.restore" />
-                            <x-form.action-button wire:click="confirmForceDelete({{ $user->id }})"
-                                class="btn-sm btn-danger" text="{{ __('button.delete') }}"
-                                permission="user.force.delete" />
-                        @else
-                            <x-form.action-link class="btn-sm btn-primary" text="{{ __('button.view') }}"
-                                icon="ri-pencil-line" :route="route('admin.users.show', $user->id)" permission="user.read" />
-                            <x-form.action-link class="btn-sm btn-success" text="{{ __('button.edit') }}"
-                                icon="ri-pencil-line" :route="route('admin.users.edit', $user->id)" permission="user.update" />
-                            <x-form.action-button wire:click="confirmDelete({{ $user->id }})"
-                                class="btn-sm btn-danger" permission="user.delete" />
-                        @endif
-                    </td>
-                </tr>
+                @if ($user->id !== 1 && $user->id !== auth()->user()->id)
+                    <tr wire:key="{{ $user->id }}">
+                        <td>{{ $id-- }}</td>
+                        <td>{{ ucwords($user->name) }}</td>
+                        <td>{{ $user->email }}</td>
+                        <td>
+                            @if ($user->email_verified_at)
+                                <span class="badge bg-success">Verified</span>
+                            @else
+                                <span class="badge bg-danger">Not Verified</span>
+                            @endif
+                        </td>
+                        <td><x-form.toggle-checkbox :record="$user" field="active" /></td>
+                        <td class="text-end">
+                            @if ($showDeleted)
+                                <x-form.action-button wire:click="confirmRestore({{ $user->id }})"
+                                    class="btn-sm btn-warning" text="{{ __('button.restore') }}"
+                                    icon="ri-delete-bin-7-line" permission="user.restore" />
+                                <x-form.action-button wire:click="confirmForceDelete({{ $user->id }})"
+                                    class="btn-sm btn-danger" text="{{ __('button.delete') }}"
+                                    permission="user.force.delete" />
+                            @else
+                                <x-form.action-link class="btn-sm btn-primary" text="{{ __('button.view') }}"
+                                    icon="ri-pencil-line" :route="route('admin.users.show', $user->id)" permission="user.read" />
+                                <x-form.action-link class="btn-sm btn-success" text="{{ __('button.edit') }}"
+                                    icon="ri-pencil-line" :route="route('admin.users.edit', $user->id)" permission="user.update" />
+                                <x-form.action-button wire:click="confirmDelete({{ $user->id }})"
+                                    class="btn-sm btn-danger" permission="user.delete" />
+                            @endif
+                        </td>
+                    </tr>
+                @endif
             @endforeach
         </x-table>
     </div>
