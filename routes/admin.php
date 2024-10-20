@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\ClientController;
 use Illuminate\Support\Facades\Route;
 
 // Logout
@@ -34,6 +35,9 @@ Route::middleware(['auth', 'locked', 'active', 'verify'])->name('admin.')->group
     // Profile
     Route::get('/profile', [ProfileController::class, 'profile'])->name('profile');
     Route::post('/profile', [ProfileController::class, 'store'])->name('profile.store');
+
+    // Clients
+    Route::resource('/clients', ClientController::class);
 
     // Manage
     Route::prefix('/manage')->group(function () {

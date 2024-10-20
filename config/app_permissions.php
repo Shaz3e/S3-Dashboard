@@ -1,6 +1,15 @@
 <?php
 
 return [
+    'client' => [
+        'list',
+        'create',
+        'read',
+        'update',
+        'delete',
+        'restore',
+        'force.delete'
+    ],
     'user' => [
         'list',
         'create',
