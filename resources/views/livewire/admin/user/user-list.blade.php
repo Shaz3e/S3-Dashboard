@@ -18,9 +18,17 @@
             </select>
         </div>
         {{-- /.col --}}
-        <div class="col-md-9 col-sm-12 mb-2">
+        <div class="col-md-7 col-sm-12 mb-2">
             <input type="search" wire:model.live="search" class="form-control form-control-sm"
                 placeholder="{{ __('filter.search') }}">
+        </div>
+        {{-- .col --}}
+        <div class="col-md-2 col-sm-12 mb-2">
+            <select wire:model.live="filterStatus" class="form-control form-control-sm form-control-border">
+                <option value="">{{ __('user.filter.show_all') }}</option>
+                <option value="0">{{ __('user.filter.inactive') }}</option>
+                <option value="1">{{ __('user.filter.active') }}</option>
+            </select>
         </div>
         {{-- .col --}}
         <div class="col-md-2 col-sm-12 mb-2">
