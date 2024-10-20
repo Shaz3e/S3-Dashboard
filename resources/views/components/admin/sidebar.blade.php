@@ -36,7 +36,7 @@
                 @can('client.list')
                     <li>
                         <a href="{{ route('admin.clients.index') }}" class="waves-effect">
-                            <i class="ri-dashboard-line"></i>
+                            <i class="ri-group-line"></i>
                             <span>{{ __('client.menu.index') }}</span>
                         </a>
                     </li>
