@@ -35,13 +35,21 @@
                 </li>
 
                 {{-- Roles & Permissions --}}
-                @canany(['role.list', ['permission.list']])
+                @canany(['user.list', 'role.list', ['permission.list']])
                     <li>
                         <a href="javascript: void(0);" class="has-arrow waves-effect">
                             <i class="ri-shield-user-line"></i>
                             <span>{{ __('menu.manage') }}</span>
                         </a>
                         <ul class="sub-menu mm-collapse" aria-expanded="false">
+                            @can('user.list')
+                                <li class="{{ request()->routeIs('admin.users.*') ? 'mm-active' : '' }}">
+                                    <a href="{{ route('admin.users.index') }}"
+                                        class="waves-effect {{ request()->routeIs('admin.users.*') ? 'active' : '' }}">
+                                        {{ __('user.menu.index') }}
+                                    </a>
+                                </li>
+                            @endcan
                             @can('role.list')
                                 <li class="{{ request()->routeIs('admin.roles.*') ? 'mm-active' : '' }}">
                                     <a href="{{ route('admin.roles.index') }}"

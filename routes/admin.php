@@ -19,7 +19,8 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\Setting\GeneralSettingController;
 use App\Http\Controllers\Admin\Setting\SmtpServerSettingController;
 
-
+// Users
+use App\Http\Controllers\Admin\UserController;
 
 Route::middleware(['auth', 'locked', 'active', 'verify'])->name('admin.')->group(function () {
 
@@ -36,6 +37,8 @@ Route::middleware(['auth', 'locked', 'active', 'verify'])->name('admin.')->group
 
     // Manage
     Route::prefix('/manage')->group(function () {
+
+        Route::resource('/users', UserController::class);
 
         // Setting
         Route::prefix('/settings')->group(function () {

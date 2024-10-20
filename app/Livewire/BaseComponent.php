@@ -53,9 +53,20 @@ abstract class BaseComponent extends Component
             }
         }
 
+        // Apply additional constraints defined in child components
+        $this->applyAdditionalConstraints($query);
+
         $records = $query->latest()->paginate($this->perPage);
 
         return view($this->getViewName(), ['records' => $records]);
+    }
+
+    /**
+     * Override this method in child components to add custom query constraints
+     */
+    protected function applyAdditionalConstraints($query)
+    {
+        // This method can be overridden in child classes to add specific constraints
     }
 
     /**

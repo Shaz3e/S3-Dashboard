@@ -27,6 +27,7 @@ return new class extends Migration
              */
             $table->boolean('user_type')->default(false);
             $table->rememberToken();
+            $table->softDeletes();
             $table->timestamps();
         });
 
