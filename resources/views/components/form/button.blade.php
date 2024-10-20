@@ -1,13 +1,14 @@
 @props([
+    'type' => 'submit',
     'text' => __('button.save'),
     'icon' => 'ri-save-line', // No icon by default
     'iconPosition' => 'left', // Can be 'left', 'right', or 'none'
-    'class' => '',
+    'class' => 'btn-dark btn-sm',
     'name' => '',
 ])
 
-<button type="submit" name="{{ $name }}"
-    {{ $attributes->merge(['class' => 'btn btn-dark btn-sm waves-effect waves-light ' . $class]) }}>
+<button type="{{ $type }}" name="{{ $name }}"
+    {{ $attributes->merge(['class' => 'btn waves-effect waves-light ' . $class]) }}>
 
     {{-- Render Left Icon --}}
     @if ($icon && $iconPosition === 'left')

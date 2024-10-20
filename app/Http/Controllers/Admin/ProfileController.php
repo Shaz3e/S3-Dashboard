@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Profile\StoreProfileRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class ProfileController extends Controller
@@ -40,6 +41,10 @@ class ProfileController extends Controller
 
         if ($request->has('additionalInformation')) {
             return $this->additionalInformation(app(StoreProfileRequest::class));
+        }
+
+        if ($request->has('deleteMyAccount')) {
+            return $this->deleteMyAccount($request);
         }
     }
 
@@ -145,5 +150,22 @@ class ProfileController extends Controller
         $user->profile->update($validated);
         flash()->success(__('profile.success.additional_information'));
         return back();
+    }
+
+    private function deleteMyAccount(Request $request)
+    {
+        $user = Auth::user();
+
+        // Password is incorrect
+        if (!password_verify($request->password, $user->password)) {
+            flash()->error(__('profile.error.current_password_incorrect'));
+            return back();
+        }
+
+        $user->delete();
+
+        flash()->success(__('profile.success.account_deleted'));
+
+        return redirect()->route('admin.dashboard');
     }
 }

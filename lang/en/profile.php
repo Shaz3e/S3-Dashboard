@@ -10,6 +10,7 @@ return [
         'password_changed' => 'Password updated',
         'profile_picture_updated' => 'Profile picture updated',
         'additional_information' => 'Additional information updated',
+        'account_deleted' => 'Your account has been scheduled to delete',
     ],
     'warning' => [],
     'info' => [],
@@ -29,6 +30,8 @@ return [
         'change_profile_picture' => 'Change Profile Picture',
         'change_password' => 'Change Password',
         'additional_information' => 'Additional Information',
+        'delete_account' => 'Delete Account',
+        'delete_confirmation' => 'Are you sure you want to delete your account?',
     ],
 
     'card_text' => [
@@ -36,6 +39,8 @@ return [
         'change_profile_picture' => 'You can also upload your own profile picture please use square image with max 2mb file size.',
         'change_password' => 'Ensure your account is using a long, random password to stay secure.',
         'additional_information' => 'Add additional information to your profile.',
+        'delete_account' => 'Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.',
+        'delete_confirmation' => 'Once your account is deleted, all of its resources and data will be permanently deleted. Please enter your password to confirm you would like to permanently delete your account.',
     ],
 
     'db' => [
@@ -60,6 +65,7 @@ return [
 
     'button' => [
         'change_password' => 'Change Password',
-        'change_avatar' => 'Change Profile Picture'
+        'change_avatar' => 'Change Profile Picture',
+        'delete_account' => 'Delete My Account',
     ],
 ];
