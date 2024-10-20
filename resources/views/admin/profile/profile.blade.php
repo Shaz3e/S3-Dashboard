@@ -15,7 +15,9 @@
 
     @include('admin.profile.password')
 
-    @include('admin.profile.delete')
+    @if (auth()->user()->userType === 'client')
+        @include('admin.profile.delete')
+    @endif
 @endsection
 
 @push('styles')
