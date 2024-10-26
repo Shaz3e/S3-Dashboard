@@ -37,9 +37,6 @@ return [
         'restore',
         'force.delete'
     ],
-    'permission' => [
-        'list',
-    ],
 
     // Settings Permissions
     'general-setting' => [
