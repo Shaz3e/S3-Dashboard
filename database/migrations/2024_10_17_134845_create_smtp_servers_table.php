@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('smtp_servers', function (Blueprint $table) {
             $table->id();
             $table->string('transport')->default('smtp');
-            $table->string('host')->unique();
+            $table->string('host');
             $table->integer('port');
             $table->string('encryption');
             $table->string('username');
@@ -22,6 +22,7 @@ return new class extends Migration
             $table->integer('timeout')->nullable();
             $table->boolean('auth_mode')->default(false);
             $table->boolean('active')->default(true);
+            $table->boolean('default')->default(false);
             $table->timestamps();
         });
     }

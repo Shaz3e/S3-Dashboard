@@ -53,6 +53,7 @@ return [
         'timeout' => 'Connection timeout (in seconds). Leave blank for no timeout.',
         'auth_mode' => 'Authentication method (Eneable this if your SMTP requires authentication)',
         'active' => 'Enable or disable email sending from this SMTP',
+        'default' => 'Set this SMTP as default',
     ],
 
     'button' => [
@@ -74,6 +75,7 @@ return [
         'no_timeout' => 'No Timeout',
         'auth_mode' => 'Auth Mode',
         'active' => 'Status',
+        'default' => 'Default SMTP Connection',
         'actions' => 'Actions',
     ],
 ];

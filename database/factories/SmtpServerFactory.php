@@ -26,6 +26,7 @@ class SmtpServerFactory extends Factory
             'timeout' => fake()->randomElement([null, 300, 600]),
             'auth_mode' => fake()->boolean(), // Simplified to boolean
             'active' => fake()->boolean(),
+            'default' => false,
         ];
     }
 }

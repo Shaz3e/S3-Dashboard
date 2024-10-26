@@ -83,6 +83,14 @@
                     </div>
                 </div>
                 {{-- /.row --}}
+                <div class="row mb-3">
+                    <label for="active" class="col-sm-4 col-form-label">{{ __('smtp-server.table.default') }}</label>
+                    <div class="col-sm-8">
+                        <x-form.select name="default" :options="[0 => 'Not Default', 1 => 'Default']" :selected="$smtpServer->default" required="true"
+                            help_text="{{ __('smtp-server.help_text.default') }}" />
+                    </div>
+                </div>
+                {{-- /.row --}}
             </div>
         </div>
         {{-- /.card-body --}}

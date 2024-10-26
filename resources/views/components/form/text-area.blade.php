@@ -10,9 +10,9 @@
 ])
 
 <div class="mb-3">
-    {{-- @if ($label)
+    @if ($label)
         <label for="{{ $name }}" class="form-label">{{ $label }}</label>
-    @endif --}}
+    @endif
     <textarea name="{{ $name }}" id="{{ $name }}" placeholder="{{ $placeholder }}" rows="{{ $rows }}"
         class="{{ $class }}" {{ $required ? 'required' : '' }}>{{ $value }}</textarea>
     <small class="d-block text-muted">{{ $help_text }}</small>

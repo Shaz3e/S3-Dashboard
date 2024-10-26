@@ -24,7 +24,6 @@ class StoreSmtpServerRequest extends BaseFormRequest
             'host' => [
                 'required',
                 'string',
-                Rule::unique(SmtpServer::class)->ignore($this->smtp_server),
             ],
             'port' => [
                 'required',
@@ -58,6 +57,10 @@ class StoreSmtpServerRequest extends BaseFormRequest
                 'boolean',
             ],
             'active' => [
+                'required',
+                'boolean',
+            ],
+            'default' => [
                 'required',
                 'boolean',
             ],

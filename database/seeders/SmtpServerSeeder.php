@@ -20,6 +20,7 @@ class SmtpServerSeeder extends Seeder
             'username' => 'test@shaz3e.com',
             'password' => '123456789',
             'active' => true,
+            'default' => true,
         ];
 
         SmtpServer::create($smtpServers);

@@ -68,6 +68,10 @@
                         <td><x-form.toggle-checkbox :record="$record" field="active" /></td>
                     </tr>
                     <tr>
+                        <td>{{ __('smtp-server.table.default') }}</td>
+                        <td><x-form.toggle-checkbox :record="$record" field="default" /></td>
+                    </tr>
+                    <tr>
                         <td>{{ __('smtp-server.table.actions') }}</td>
                         <td class="text-end">
                             <x-form.action-link class="btn-sm btn-success" text="{{ __('button.edit') }}"
