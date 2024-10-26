@@ -4,11 +4,11 @@
     'text' => __('button.click_here'),
     'icon' => 'ri-links-line', // No icon by default
     'iconPosition' => 'left', // Can be 'left', 'right', or 'none'
-    'class' => 'btn-dark', // Default button class is btn-dark
+    'class' => 'btn-sm btn-dark', // Default button class is btn-dark
 ])
 
 @if (is_null($permission) || auth()->user()->can($permission))
-    <a href="{{ $route }}" {{ $attributes->merge(['class' => 'btn btn-sm waves-effect waves-light ' . $class]) }}>
+    <a href="{{ $route }}" {{ $attributes->merge(['class' => 'btn waves-effect waves-light ' . $class]) }}>
         {{-- Render Left Icon --}}
         @if ($icon && $iconPosition === 'left')
             <i class="{{ $icon }} align-middle me-1"></i>
