@@ -90,8 +90,8 @@ class GeneralSettingController extends Controller
             'APP_NAME' => "\"{$validated['app_name']}\"",
             'APP_URL' => rtrim($validated['app_url'], '/'),
             'APP_TIMEZONE' => $validated['app_timezone'],
-            'MAIL_FROM_ADDRESS' => "\"{$validated['mail_from_name']}\"",
-            'MAIL_FROM_NAME' => "\"{$validated['mail_from_email']}\"",
+            'MAIL_FROM_ADDRESS' => "\"{$validated['mail_from_email']}\"",
+            'MAIL_FROM_NAME' => "\"{$validated['mail_from_name']}\"",
         ];
 
         // Update the key-value pairs
