@@ -19,6 +19,7 @@ class VerifyEmailMiddleware
         // If user is authenticated and email is not verified
         if (Auth::check()) {
             if (Auth::user()->email_verified_at == null && !$request->is('verify')) {
+                Auth::logout();
                 return redirect()->route('verify');
             }
         }
