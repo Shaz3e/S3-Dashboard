@@ -43,7 +43,7 @@
                 @endcan
 
                 {{-- Roles & Permissions --}}
-                @canany(['user.list', 'role.list', ['permission.list']])
+                @canany(['user.list', 'role.list', 'permission.list'])
                     <li>
                         <a href="javascript: void(0);" class="has-arrow waves-effect">
                             <i class="ri-shield-user-line"></i>
@@ -55,6 +55,15 @@
                                     <a href="{{ route('admin.users.index') }}"
                                         class="waves-effect {{ request()->routeIs('admin.users.*') ? 'active' : '' }}">
                                         {{ __('user.menu.index') }}
+                                    </a>
+                                </li>
+                            @endcan
+                            @can('email-templates.list')
+                                <li
+                                    class="{{ request()->routeIs(config('email-templates.route_prefix') . '.email-templates.*') ? 'mm-active' : '' }}">
+                                    <a href="{{ route(config('email-templates.route_prefix') . '.email-templates.index') }}"
+                                        class="waves-effect {{ request()->routeIs('admin.roles.*') ? 'active' : '' }}">
+                                        {{ __('email-templates::email-templates.title.index') }}
                                     </a>
                                 </li>
                             @endcan
