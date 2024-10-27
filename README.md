@@ -88,6 +88,12 @@ Easily configure:
 You are done now after seeding data there multiple staff and users are created
 if the APP_ENV set to local you will get Auto Login option thanks to [Spatie Laravel Login Link](https://github.com/spatie/laravel-login-link)
 
+### Custom Package
+
+Specially designed for **S3 Dashboard**
+
+-   [Email Templates](https://github.com/Shaz3e/email-templates/)
+
 ## Credit
 
 -   Laravel: Built using [Laravel](https://laravel.com/), an elegant PHP framework for web artisans.
