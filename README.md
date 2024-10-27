@@ -53,7 +53,7 @@ Easily configure:
 
 1. **Clone the Repository**:
     ```bash
-    git clone https://github.com/your-username/s3-dashboard.git
+    git clone https://github.com/shaz3e/s3-dashboard.git
     ```
 2. **Configure environment variables**
     ```bash
