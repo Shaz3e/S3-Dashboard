@@ -1,66 +1,104 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# S3 Dashboard
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+![Build Status](https://img.shields.io/github/actions/workflow/status/shaz3e/s3-dashboard/ci.yml?branch=main)
+![GitHub Release](https://img.shields.io/github/v/release/shaz3e/s3-dashboard)
+![GitHub issues](https://img.shields.io/github/issues/shaz3e/s3-dashboard)
+![License](https://img.shields.io/github/license/shaz3e/s3-dashboard)
+![GitHub Contributors](https://img.shields.io/github/contributors/shaz3e/s3-dashboard)
+![PHP Version](https://img.shields.io/packagist/php-v/laravel/laravel)
+![Packagist Downloads](https://img.shields.io/packagist/dt/shaz3e/s3-dashboard)
+![GitHub Stars](https://img.shields.io/github/stars/shaz3e/s3-dashboard)
+![GitHub Forks](https://img.shields.io/github/forks/shaz3e/s3-dashboard)
 
-## About Laravel
+S3 Dashboard is a Laravel-based starter kit designed for rapid application development with built-in roles and permissions, user management, and authentication features. This kit also provides essential middleware and multi-SMTP support, allowing a secure and scalable environment out-of-the-box.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Features
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Authentication & User Management
 
-## Learning Laravel
+-   **User Registration, Login, Password Reset, Forgot Password, and Email Verification**.
+-   **Roles & Permissions**: Easily manage roles and permissions, thanks to [Spatie Laravel Permissions](https://spatie.be/docs/laravel-permission/).
+-   **Three Default Roles**: `superadmin`, `developer`, and `tester` with unrestricted route access.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Middleware
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+1. **Auth Middleware**: Secure routes with user authentication.
+2. **Lock Middleware**: Lock users’ accounts when idle to prevent unauthorized access. Users can unlock by re-entering their password.
+3. **Active Middleware**: Control access based on user activity status. New users are active by default, but admins can inactivate users, automatically logging them out on their next action.
+4. **Verify Middleware**: Require email verification before granting account access. This is disabled by default for quick access but can be enabled via the `UserObserver`.
+5. **Locale Middleware**: Allows users to manage language settings. Currently, only English is supported. Contributions for other languages are welcome!
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### SMTP & Email Settings
 
-## Laravel Sponsors
+-   **Multi-SMTP Support**: Configure multiple SMTP servers to ensure failover support. If the default server fails, the system will attempt to send emails through other configured SMTP servers.
+-   **ObserverServiceProvider**: Manage all observers from one place.
+-   **PolicyServiceProvider**: Customize policy registration in cases where the model and policy names do not match.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### General Settings
 
-### Premium Partners
+Easily configure:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+-   Application settings, including App Name, URL, Site URL, and Timezone.
+-   Logo settings (Main Logo, Favicon, Light Theme Logo, Dark Theme Logo).
+-   Email settings, such as Default Sending Email.
 
-## Contributing
+### Additional Functionalities
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+-   **Client & Staff Management**: Manage client and staff data in a single table, eliminating the need for multiple models.
+-   **Customizable Middleware**: The `UserObserver` class can be used to customize user behaviors like activation and verification post-installation.
+-   **Social Login**: Currently supported Github but in future Google and Facebook will be added Thanks to [Laravel Socialite](https://laravel.com/docs/11.x/socialite)
 
-## Code of Conduct
+---
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## Installation
 
-## Security Vulnerabilities
+1. **Clone the Repository**:
+    ```bash
+    git clone https://github.com/your-username/s3-dashboard.git
+    ```
+2. **Configure environment variables**
+    ```bash
+    cp .env.example .env
+    ```
+3. **Generate Key**
+    ```bash
+    php artisan key:generate
+    ```
+4. **Update Database Credentials**
+    ```bash
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=s3dashboard
+    DB_USERNAME=root
+    DB_PASSWORD=root
+    ```
+5. **Install Dependencies**:
+    ```bash
+    composer install
+    ```
+6. **Run Migrations**:
+    ```bash
+    php artisan migrate
+    ```
+7. **Seed the Database**:
+    ```bash
+    php artisan db:seed
+    ```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+You are done now after seeding data there multiple staff and users are created
+if the APP_ENV set to local you will get Auto Login option thanks to [Spatie Laravel Login Link](https://github.com/spatie/laravel-login-link)
 
-## License
+## Credit
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+-   Laravel: Built using [Laravel](https://laravel.com/), an elegant PHP framework for web artisans.
+-   Author: [Shaz3e](https://www.shaz3e.com) | [YouTube](https://www.youtube.com/@shaz3e) | [Facebook](https://www.facebook.com/shaz3e) | [Twitter](https://twitter.com/shaz3e) | [Instagram](https://www.instagram.com/shaz3e) | [LinkedIn](https://www.linkedin.com/in/shaz3e/)
+-   Supported By: [Diligent Creators](https://www.diligentcreators.com) | [Facebook](https://www.facebook.com/diligentcreators) | [Instagram](https://www.instagram.com/diligentcreators/) | [Twitter](https://twitter.com/diligentcreator) | [LinkedIn](https://www.linkedin.com/company/diligentcreators/) | [Pinterest](https://www.pinterest.com/DiligentCreators/) | [YouTube](https://www.youtube.com/@diligentcreator) [TikTok](https://www.tiktok.com/@diligentcreators) | [Google Map](https://g.page/diligentcreators)
+
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/shaz3e/email-templates)
+
+![GitHub Stats](https://github-readme-stats.vercel.app/api?username=shaz3e&show_icons=true&count_private=true&theme=default)
+
+![GitHub Contributions Graph](https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=shaz3e&theme=default)
