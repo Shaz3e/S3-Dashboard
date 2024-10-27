@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "75cb0a23ee34cb5666466f9aa87bbf10",
+    "content-hash": "b69f3d3e89f9625a4faef29456ac088c",
     "packages": [
         {
             "name": "brick/math",
@@ -3803,6 +3803,50 @@
                 }
             ],
             "time": "2024-04-27T21:32:50+00:00"
+        },
+        {
+            "name": "shaz3e/email-templates",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Shaz3e/email-templates.git",
+                "reference": "08cc64d4b60bedc9743cdc807f65e223953087d4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Shaz3e/email-templates/zipball/08cc64d4b60bedc9743cdc807f65e223953087d4",
+                "reference": "08cc64d4b60bedc9743cdc807f65e223953087d4",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Shaz3e\\EmailTemplates\\Providers\\EmailTemplatesServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Shaz3e\\EmailTemplates\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Shahrukh Akhtar",
+                    "email": "iam@shaz3e.com"
+                }
+            ],
+            "description": "A demo package",
+            "support": {
+                "issues": "https://github.com/Shaz3e/email-templates/issues",
+                "source": "https://github.com/Shaz3e/email-templates/tree/v1.0.0"
+            },
+            "time": "2024-10-27T19:10:01+00:00"
         },
         {
             "name": "spatie/laravel-login-link",
