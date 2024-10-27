@@ -2,7 +2,6 @@
 
 ![GitHub Release](https://img.shields.io/github/v/release/shaz3e/s3-dashboard)
 ![GitHub issues](https://img.shields.io/github/issues/shaz3e/s3-dashboard)
-![License](https://img.shields.io/github/license/shaz3e/s3-dashboard)
 ![GitHub Contributors](https://img.shields.io/github/contributors/shaz3e/s3-dashboard)
 ![PHP Version](https://img.shields.io/packagist/php-v/laravel/laravel)
 ![GitHub Stars](https://img.shields.io/github/stars/shaz3e/s3-dashboard)
