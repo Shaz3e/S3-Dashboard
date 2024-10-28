@@ -7,6 +7,7 @@ use App\Http\Requests\Auth\ForgotPasswordRequest;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use Shaz3e\EmailTemplates\Services\EmailService;
 
 class ForgotPasswordController extends Controller
 {
@@ -35,10 +36,24 @@ class ForgotPasswordController extends Controller
             DB::table('password_reset_tokens')->where('email', $validated['email'])->delete();
         }
 
-        $token = DB::table('password_reset_tokens')->insert([
+        $token = Str::random(64);
+        DB::table('password_reset_tokens')->insert([
             'email' => $validated['email'],
-            'token' => Str::random(64),
+            'token' => $token,
             'created_at' => now(),
+        ]);
+
+        $reset_password_link = route('reset', [
+            'email' => $validated['email'],
+            'token' => $token
+        ]);
+        // Create instance of EmailService
+        $emailService = new EmailService();
+
+        $emailService->sendEmailByKey('reset_password', $user->email, [
+            'name' => $user->name,
+            'reset_password_link' => $reset_password_link,
+            'app_name' => config('app.name'),
         ]);
 
         flash()->success(__('auth.forgot_password'));

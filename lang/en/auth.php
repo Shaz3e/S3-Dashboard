@@ -19,9 +19,16 @@ return [
     'active' => 'Your account is pending for approval',
     'forgot_password' => 'Reset password link has been sent to your email address.',
     'user_exists' => 'Email already exists in our record.',
-    'user_registration_success' => 'Your account has been created.',
+    'user_registration_success' => 'Your account has been created. You can now login.',
+    'user_registration_success_activate' => 'An email has been sent to verify your email.',
     'user_not_found' => 'This emails is not registered with us.',
     'logout' => 'You have been logged successfully.',
+    'user_activation_token_not_match' => 'The activation link is invalid please contact support.',
+    'user_registration_success_after_activate' => 'Your account has been activated.',
+    'user_verification_token_not_match' => 'The verification link is invalid please try again.',
+    'email_already_verified' => 'Your email has already been verified.',
+    'email_verified' => 'Your account has been veirifed, you can now login.',
+    'verification_email_sent' => 'An email has been sent to verify your email.',
 
     // Page Title
     'title' => [

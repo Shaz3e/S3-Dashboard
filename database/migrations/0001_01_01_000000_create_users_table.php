@@ -26,6 +26,8 @@ return new class extends Migration
              * @return boolean
              */
             $table->boolean('user_type')->default(false);
+            $table->string('activation_token')->nullable();
+            $table->string('verification_token')->nullable();
             $table->rememberToken();
             $table->softDeletes();
             $table->timestamps();

@@ -15,14 +15,6 @@ class UserObserver
         $user->profile()->firstOrCreate([
             'user_id' => $user->id
         ]);
-
-        // Activate user
-        $user->active = true;
-
-        // Verify User
-        $user->email_verified_at = now();
-
-        $user->save();
     }
 
     /**

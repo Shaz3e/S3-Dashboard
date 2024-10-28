@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\ResetPasswordRequest;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
+use Shaz3e\EmailTemplates\Services\EmailService;
 
 class PasswordResetController extends Controller
 {
@@ -49,6 +50,17 @@ class PasswordResetController extends Controller
         DB::table('password_reset_tokens')
             ->where('email', $request->email)
             ->delete();
+
+        // Create instance of EmailService
+        $emailService = new EmailService();
+
+        $reset_password_link =  route('forgot');
+
+        $emailService->sendEmailByKey('reset_password_success', $user->email, [
+            'name' => $user->name,
+            'app_name' => config('app.name'),
+            'reset_password_link' => $reset_password_link,
+        ]);
 
         flash()->success(__('passwords.reset'));
         return to_route('login');

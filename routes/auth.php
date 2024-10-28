@@ -18,6 +18,9 @@ Route::middleware('guest')->group(function () {
     Route::get('/register', [RegisterController::class, 'register'])->name('register');
     Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
 
+    // Activate Account
+    Route::get('/activate/{email}/{token}', [RegisterController::class, 'activateAccount'])->name('activate');
+
     // Login
     Route::get('/login', [LoginController::class, 'login'])->name('login');
     Route::post('/login', [LoginController::class, 'store'])->name('login.store');
@@ -32,6 +35,7 @@ Route::middleware('guest')->group(function () {
 
     Route::get('/verify', [VerifyEmailController::class, 'verify'])->name('verify');
     Route::post('/verify', [VerifyEmailController::class, 'store'])->name('verify.store');
+    Route::get('/verify/{email}/{token}',[VerifyEmailController::class, 'verified'])->name('verify.account');
 
     // Register with Github
     Route::get('/auth/github', [GithubController::class, 'redirect'])->name('github.redirect');

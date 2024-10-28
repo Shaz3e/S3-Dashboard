@@ -5,6 +5,13 @@
     ]" />
 @endif
 
+@if (request()->routeIs('admin.settings.auth'))
+    <x-page-title title="{{ __('setting.title.auth') }}" :breadcrumbs="[
+        ['url' => '/', 'label' => __('app.breadcrumb.dashboard')],
+        ['label' => __('setting.breadcrumb.auth')],
+    ]" />
+@endif
+
 @if (request()->routeIs('admin.smtp-servers.index'))
     <x-page-title title="{{ __('smtp-server.title.index') }}" :breadcrumbs="[
         ['url' => '/', 'label' => __('app.breadcrumb.dashboard')],

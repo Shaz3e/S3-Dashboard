@@ -41,7 +41,7 @@
         </div>
         {{-- /.card-body --}}
         <div class="card-footer">
-            <x-form.button text="Save General Setting" />
+            <x-form.button text="{{ __('setting.button.general_setting') }}" />
         </div>
         {{-- /.card-footer --}}
     </div>

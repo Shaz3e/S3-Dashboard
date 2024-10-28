@@ -28,6 +28,9 @@ class DatabaseSeeder extends Seeder
 
             // Sync Roles & Permissions
             RolePermissionSeeder::class,
+
+            // Email Templates
+            EmailTemplateSeeder::class,
         ]);
     }
 }

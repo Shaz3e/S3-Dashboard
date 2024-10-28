@@ -43,5 +43,10 @@ return [
         'list',
         'read',
         'update',
-    ]
+    ],
+    'auth-setting' => [
+        'list',
+        'read',
+        'update',
+    ],
 ];

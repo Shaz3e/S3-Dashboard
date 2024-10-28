@@ -23,8 +23,8 @@ S3 Dashboard is a Laravel-based starter kit designed for rapid application devel
 
 1. **Auth Middleware**: Secure routes with user authentication.
 2. **Lock Middleware**: Lock users’ accounts when idle to prevent unauthorized access. Users can unlock by re-entering their password.
-3. **Active Middleware**: Control access based on user activity status. New users are active by default, but admins can inactivate users, automatically logging them out on their next action.
-4. **Verify Middleware**: Require email verification before granting account access. This is disabled by default for quick access but can be enabled via the `UserObserver`.
+3. **Active Middleware**: Control access based on user activity status. New users are inactive by default and user can activate and verify their account from email link, but admins can activate/inactivate users and this will automatically log out on their next action.
+4. **Verify Middleware**: Require email verification before granting account access. This is enabled by default for quick access but can be enabled/disabled via the **Authentication Settings**
 5. **Locale Middleware**: Allows users to manage language settings. Currently, only English is supported. Contributions for other languages are welcome!
 
 ### SMTP & Email Settings
@@ -39,6 +39,7 @@ Easily configure:
 
 -   Application settings, including App Name, URL, Site URL, and Timezone.
 -   Logo settings (Main Logo, Favicon, Light Theme Logo, Dark Theme Logo).
+-   Authentication settings Email Verification (Enable/Disable) for new account registrations.
 -   Email settings, such as Default Sending Email.
 
 ### Additional Functionalities

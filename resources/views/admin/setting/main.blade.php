@@ -11,9 +11,17 @@
             {{-- Right Sidebar --}}
             <div class="email-rightbar mb-3">
 
-                @if (request()->routeIs('admin.settings.general'))
-                    @include('admin.setting.general.general')
-                @endif
+                @can('general-setting.list')
+                    @if (request()->routeIs('admin.settings.general'))
+                        @include('admin.setting.general.general')
+                    @endif
+                @endcan
+
+                @can('auth-setting.list')
+                    @if (request()->routeIs('admin.settings.auth'))
+                        @include('admin.setting.auth.auth')
+                    @endif
+                @endcan
 
                 @can('smtp-server.list')
                     @if (request()->routeIs('admin.smtp-servers.index'))

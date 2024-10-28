@@ -4,7 +4,8 @@ return [
     'error' => [],
 
     'success' => [
-        'general_saved' => 'General setting have been saved',
+        'general_saved' => 'General setting have been saved.',
+        'auth_setting_saved' => 'Authentication setting have been saved.',
     ],
 
     'warning' => [],
@@ -14,15 +15,18 @@ return [
     'updated_at' => [],
 
     'title' => [
-        'general' => 'General Settings'
+        'general' => 'General Settings',
+        'auth' => 'Authentication Settings',
     ],
 
     'breadcrumb' => [
-        'general' => 'General Settings'
+        'general' => 'General Settings',
+        'auth' => 'Authentication Settings',
     ],
 
     'menu' => [
-        'general' => 'General Settings'
+        'general' => 'General Settings',
+        'auth' => 'Authentication Settings',
     ],
 
     'card_heading' => [],
@@ -42,9 +46,17 @@ return [
         'logo_dark' => 'Only PNG with max 1MB file size allowed. Best image size 137px x 30px',
         'mail_from_name' => 'Type name which you want to show when system sends an email',
         'mail_from_email' => 'Enter email address which you want to send email from.',
+        'active' => 'Require user activation for new account registration (Enable/Disable)',
     ],
 
-    'button' => [],
+    'button' => [
+        'general_setting' => 'Save General Setting,',
+        'auth_setting' => 'Save Auth Settings',
+    ],
+
+    'form' => [
+        'active' => 'Verify Email on Regiteration',
+    ],
 
     'table' => [],
 ];
